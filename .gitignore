@@ -2,7 +2,5 @@
 HotFix/.idea
 HotFix/.vs
 HotFix/bin
-*.csproj
-*.sln
 HotFix/HotFix.sln.DotSettings.user
 *.dll

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{888A9D5B-5858-49CF-A47B-085E7DD3EE98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotFix</RootNamespace>
+    <AssemblyName>HotFix</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\Library\ScriptAssemblies\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>..\..\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UniTask">
+      <HintPath>..\..\Library\ScriptAssemblies\UniTask.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\com.unity.template.universal-2d-2.1.3\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2c1\Editor\Data\Managed\UnityEngine\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BreedingType.cs" />
+    <Compile Include="Common\PanelType.cs" />
+    <Compile Include="Common\RequestCode\RequestCode.cs" />
+    <Compile Include="Common\Utils\AnimatorUtils.cs" />
+    <Compile Include="Common\Utils\HorseUtils.cs" />
+    <Compile Include="Common\Utils\MonoUtils.cs" />
+    <Compile Include="Common\PayType.cs" />
+    <Compile Include="Common\Utils\NumUtils.cs" />
+    <Compile Include="Common\Utils\TimeUtils.cs" />
+    <Compile Include="Common\Utils\WebRequestUtils.cs" />
+    <Compile Include="GameDatas\AllGateData.cs" />
+    <Compile Include="GameDatas\AllPlayerData.cs" />
+    <Compile Include="GameDatas\AllPrefabsData.cs" />
+    <Compile Include="GameDatas\AllBuildingData.cs" />
+    <Compile Include="GameDatas\ClientData\BillData.cs" />
+    <Compile Include="GameDatas\ClientData\CommonData.cs" />
+    <Compile Include="GameDatas\ClientData\HistoryData.cs" />
+    <Compile Include="GameDatas\FilesName.cs" />
+    <Compile Include="GameDatas\HorseBodyDatas.cs" />
+    <Compile Include="GameDatas\PlayerTypeData.cs" />
+    <Compile Include="GameDatas\ServerData\Request\BreedSiteList.cs" />
+    <Compile Include="GameDatas\ServerData\Request\HorseData.cs" />
+    <Compile Include="GameDatas\ServerData\PlayerInfoData.cs" />
+    <Compile Include="GameDatas\ServerData\RankInfoData.cs" />
+    <Compile Include="GameDatas\ServerData\Request\JoinRoomPlayerData.cs" />
+    <Compile Include="GameDatas\ServerData\Response\HorseMoveData.cs" />
+    <Compile Include="GameDatas\ServerData\Response\ResultRankData.cs" />
+    <Compile Include="GameDatas\ServerData\RoomDatas.cs" />
+    <Compile Include="Manager\EcsManager.cs" />
+    <Compile Include="Manager\GameManager.cs" />
+    <Compile Include="Manager\HouseManager.cs" />
+    <Compile Include="Manager\JsonConfigManager.cs" />
+    <Compile Include="Manager\MessageCenterEventID.cs" />
+    <Compile Include="Manager\PurchaseManager.cs" />
+    <Compile Include="Manager\ServerRequestManager.cs" />
+    <Compile Include="Manager\ToolManager.cs" />
+    <Compile Include="Manager\UserInfoManager.cs" />
+    <Compile Include="NetWork\WebRequestFuncitons.cs" />
+    <Compile Include="Objects\CameraController.cs" />
+    <Compile Include="Objects\HorseBreedObject.cs" />
+    <Compile Include="Objects\HorseCamera.cs" />
+    <Compile Include="Objects\HorseMoveAI.cs" />
+    <Compile Include="Objects\HorseObject.cs" />
+    <Compile Include="Objects\OtherPlayerController.cs" />
+    <Compile Include="Objects\PlayerController.cs" />
+    <Compile Include="Objects\PlayStateItem.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\BreedingWindow.cs" />
+    <Compile Include="UI\DetailWindow.cs" />
+    <Compile Include="UI\GameDetailWindow.cs" />
+    <Compile Include="UI\IfSucceedWindow.cs" />
+    <Compile Include="UI\Item\GameHistoryItem.cs" />
+    <Compile Include="UI\Item\GameListItem.cs" />
+    <Compile Include="UI\GameListWindow.cs" />
+    <Compile Include="UI\DoubleToastWindow.cs" />
+    <Compile Include="UI\ExchangeHorseMilletWindow.cs" />
+    <Compile Include="UI\GainHorseWindow.cs" />
+    <Compile Include="UI\OrderOpenHouseWindow.cs" />
+    <Compile Include="UI\PasswordInfoWindow.cs" />
+    <Compile Include="UI\PriceAffirmWindow.cs" />
+    <Compile Include="UI\PropertyWindow.cs" />
+    <Compile Include="UI\PuppyMillWindow.cs" />
+    <Compile Include="UI\PurchaseBreedChargeWindow.cs" />
+    <Compile Include="UI\PurchaseHorseMilletWindow.cs" />
+    <Compile Include="UI\PurchaseWindow.cs" />
+    <Compile Include="UI\QuestionsWindow.cs" />
+    <Compile Include="UI\RentWindow.cs" />
+    <Compile Include="UI\ShareWindow.cs" />
+    <Compile Include="UI\SingleToastWindow.cs" />
+    <Compile Include="UI\UserAgreementWindow.cs" />
+    <Compile Include="UI\GrowUpWindow.cs" />
+    <Compile Include="UI\MapWindow.cs" />
+    <Compile Include="UI\AddFeedWindow.cs" />
+    <Compile Include="UI\BillWindow.cs" />
+    <Compile Include="UI\CommonDataWindow.cs" />
+    <Compile Include="UI\HorseFeedWindow.cs" />
+    <Compile Include="UI\InfoConfirmWindow.cs" />
+    <Compile Include="UI\Item\BillItem.cs" />
+    <Compile Include="UI\QuitGameWindow.cs" />
+    <Compile Include="UI\SelectPlayerWindow.cs" />
+    <Compile Include="UI\Item\HistoryItem.cs" />
+    <Compile Include="UI\LoadingWindow.cs" />
+    <Compile Include="UI\StartWindow.cs" />
+    <Compile Include="UI\MainWindow.cs" />
+    <Compile Include="UI\PlayWindow.cs" />
+    <Compile Include="UI\Item\ResultRankItem.cs" />
+    <Compile Include="UI\Item\RankItem.cs" />
+    <Compile Include="UI\RoomWindow.cs" />
+    <Compile Include="UI\SettlementWindow.cs" />
+    <Compile Include="UI\ToPrepareWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\HotFix.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\HotFix.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\HotFix.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\HotFix.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\HotFix.dll" />
+    <Content Include="obj\Debug\HotFix.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
