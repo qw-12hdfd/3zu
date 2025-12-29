@@ -1,0 +1,6 @@
+E:\CompanyProject\hotfix_project\HotFix\HotFix\obj\Release\HotFix.csproj.AssemblyReference.cache
+E:\CompanyProject\hotfix_project\HotFix\HotFix\obj\Release\HotFix.csproj.CoreCompileInputs.cache
+E:\CompanyProject\hotfix_project\HotFix\HotFix\bin\Release\HotFix.dll
+E:\CompanyProject\hotfix_project\HotFix\HotFix\bin\Release\HotFix.pdb
+E:\CompanyProject\hotfix_project\HotFix\HotFix\obj\Release\HotFix.dll
+E:\CompanyProject\hotfix_project\HotFix\HotFix\obj\Release\HotFix.pdb
