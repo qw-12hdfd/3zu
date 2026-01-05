@@ -54,7 +54,7 @@ namespace HotFix
                     historyData.Add(data);
                 }
                 UserInfoManager.horseHistoryData = historyData;
-                DetailWindow.SetDetailPanelActive(3);
+                //DetailWindow.SetDetailPanelActive(3);
             }
             else
             {
@@ -210,7 +210,7 @@ namespace HotFix
                     GameData data = JsonMapper.ToObject<GameData>(item.ToJson());
                     list.Add(data);
                 }
-                GameListWindow.SetGameListData(list);
+                //GameListWindow.SetGameListData(list);
             }
             else
             {
@@ -231,7 +231,7 @@ namespace HotFix
                     list.Add(data);
                     Debug.Log(data.id + "   " + data.roomNumber);
                 }
-                GameListWindow.SetHistoryListData(list);
+                //GameListWindow.SetHistoryListData(list);
             }
             else
             {
@@ -246,10 +246,10 @@ namespace HotFix
             if (!code.Equals("200"))
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", jsonData["errorMsg"].ToString(), () => {
-                    if (RoomWindow.EnterRoomFailedResponseAction != null)
-                    {
-                        RoomWindow.EnterRoomFailedResponseAction();
-                    }
+                    // if (RoomWindow.EnterRoomFailedResponseAction != null)
+                    // {
+                    //     RoomWindow.EnterRoomFailedResponseAction();
+                    // }
                 }, null);
 
             }
@@ -263,10 +263,10 @@ namespace HotFix
             if (!code.Equals("200"))
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", jsonData["errorMsg"].ToString(), () => {
-                    if (RoomWindow.EnterRoomFailedResponseAction != null)
-                    {
-                        RoomWindow.EnterRoomFailedResponseAction();
-                    }
+                    // if (RoomWindow.EnterRoomFailedResponseAction != null)
+                    // {
+                    //     RoomWindow.EnterRoomFailedResponseAction();
+                    // }
                 }, null);
 
             }
@@ -448,7 +448,7 @@ namespace HotFix
             if (code.Equals("200"))
             {
                 string status = jsonData["data"]["status"].ToString(); 
-                (UIManager.instance.GetWndByName(FilesName.PASSWORDINFOPANEL) as PasswordInfoWindow).isClick = true;
+                // (UIManager.instance.GetWndByName(FilesName.PASSWORDINFOPANEL) as PasswordInfoWindow).isClick = true;
                 if (status == "1")
                 {
                     //母马配种成功 传送逻辑
@@ -734,7 +734,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetMyQuotaData " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.QuotaList,list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.QuotaList,list);
             }
             else
             {
@@ -781,7 +781,7 @@ namespace HotFix
                     Debug.Log("马排名的信息：" + horseData.rank);
                 }
                 UIManager.instance.PopUpWnd(FilesName.SETTLEMENTPANEL, true, false, datas);
-                SettlementWindow.SetPanelData(roomId, horseId, gameStartDatetime, rank, ((int)float.Parse(datas[rank - 1].rewardAmount)).ToString(),0);
+                // SettlementWindow.SetPanelData(roomId, horseId, gameStartDatetime, rank, ((int)float.Parse(datas[rank - 1].rewardAmount)).ToString(),0);
             }
             else
             {
@@ -910,7 +910,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetRentHorseList " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HorseRentOut, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HorseRentOut, list);
             }
             else
             {
@@ -931,7 +931,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetMyRentOutHorseList " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.MyRentOut, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.MyRentOut, list);
             }
             else
             {
@@ -952,7 +952,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetHistoryRecord " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HistoryBill, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HistoryBill, list);
             }
             else
             {
@@ -973,7 +973,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetMyRentHorseList " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.LeaseHorse, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.LeaseHorse, list);
             }
             else
             {
