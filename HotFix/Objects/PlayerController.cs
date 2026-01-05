@@ -113,7 +113,8 @@ namespace HotFix
         public override void Awake(object param1 = null, object param2 = null, object param3 = null)
         {
             name = m_Transform.Find("Name").GetComponent<TextMesh>();
-            name.text = UserInfoManager.userName.Length > 5 ? UserInfoManager.userName.Substring(0, 5) + "..." : UserInfoManager.userName;
+
+            name.text = "Rease";
             name.gameObject.SetActive(true);
             name.color = Color.green;
             moveAction = Move;

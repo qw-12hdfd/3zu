@@ -144,10 +144,10 @@ namespace HotFix
                     UserInfoManager.player = playerObj;
                     break;
                 case "Houses":
-                    GetComponent(data);
-                    CreateHorse(data);
-                    CreateFanZhiChang(data);
-                    SetFZCLed(data);
+                    //GetComponent(data);
+                    //CreateHorse(data);
+                    //CreateFanZhiChang(data);
+                    //SetFZCLed(data);
                     break;
                 default:
                     break;
