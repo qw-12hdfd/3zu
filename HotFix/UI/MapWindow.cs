@@ -16,6 +16,7 @@ namespace HotFix
         private Button closeBtn;
         RawImage rawImage;
         Camera camera;
+        RenderTexture showTest=new RenderTexture(512, 512, 16,RenderTextureFormat.ARGB32);
         public override void Awake(object param1 = null, object param2 = null, object param3 = null) { 
             GetALLComponent();
             AddALLBtnistener();
