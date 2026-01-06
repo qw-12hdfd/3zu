@@ -17,34 +17,34 @@ namespace HotFix
     {
         public void Start(string url,string token)
         {
-            NetManager.instance.AddListener(NetEvent.ConnectFail, OnConnectFailed);
-            NetManager.instance.AddListener(NetEvent.ConnectSucc, OnConnectSuccess);
-            NetManager.instance.AddMsgListener(RequestCode.QueueUpdate.ToString(), JoinSceneFunc);
-            NetManager.instance.AddMsgListener(RequestCode.JoinHall.ToString(), JoinHall);
-            NetManager.instance.AddMsgListener(RequestCode.UpdateRoomInHall.ToString(), UpdateRoomInHallResponse);
-            NetManager.instance.AddMsgListener(RequestCode.CreateRoomInHall.ToString(), CreateRoomInHallResponse);
-            NetManager.instance.AddMsgListener(RequestCode.JoinRoom.ToString(), JoinRoomResponse);//TODO用枚举监听
-            NetManager.instance.AddMsgListener(RequestCode.UpdateRoom.ToString(), UpdateRoomResponse);
-            NetManager.instance.AddMsgListener(RequestCode.LeaveRoom.ToString(), LeaveRoomResponse);
-            NetManager.instance.AddMsgListener(RequestCode.CloseRoom.ToString(), DissolveRoomResponse);
-            NetManager.instance.AddMsgListener(RequestCode.UserReady.ToString(), UserReadyResponse);
-            NetManager.instance.AddMsgListener(RequestCode.CancelReady.ToString(), UserReadyResponse);
-            NetManager.instance.AddMsgListener(RequestCode.RemindReady.ToString(), RemindReadyResponse);
-            NetManager.instance.AddMsgListener(RequestCode.RoomStart.ToString(), EnterRoomResponse);
-             NetManager.instance.AddMsgListener(RequestCode.LoadFinish.ToString(), LoadFinishProgressResponse);
-            NetManager.instance.AddMsgListener(RequestCode.GameStart.ToString(), GameStartResponse);
-            NetManager.instance.AddMsgListener(RequestCode.GameCountdown.ToString(), GameCountdownResponse);
-            NetManager.instance.AddMsgListener(RequestCode.GameEnd.ToString(), GameOverResponse);
-            NetManager.instance.AddMsgListener(RequestCode.MandatoryExit.ToString(), MandatoryExitResponse);
-            NetManager.instance.AddMsgListener(RequestCode.InGame.ToString(), GamingResponse);
-            NetManager.instance.AddMsgListener(RequestCode.Move.ToString(), PlayerMoveResponse);
-            NetManager.instance.AddMsgListener(RequestCode.OffLine.ToString(), PlayerOffLineResponse);
-            NetManager.instance.AddMsgListener(RequestCode.Transmit.ToString(), PlayerTransmitResponse);
-            NetManager.instance.AddMsgListener(RequestCode.HorseListUpdate.ToString(), RefreshHorseData);
-            NetManager.instance.AddMsgListener(RequestCode.WalkHorseQuestion.ToString(), WalkHorseQuestionFunc);
-            NetManager.instance.AddMsgListener(RequestCode.WalkHorseEnd.ToString(), WalkEndHorseFunc);
-            WebRequestUtils.InitUrl(url,token);//http://47.96.110.234:1818/api/core/v1/
-            Debug.Log("ServerRequestManager Start");
+            //NetManager.instance.AddListener(NetEvent.ConnectFail, OnConnectFailed);
+            //NetManager.instance.AddListener(NetEvent.ConnectSucc, OnConnectSuccess);
+            //NetManager.instance.AddMsgListener(RequestCode.QueueUpdate.ToString(), JoinSceneFunc);
+            //NetManager.instance.AddMsgListener(RequestCode.JoinHall.ToString(), JoinHall);
+            //NetManager.instance.AddMsgListener(RequestCode.UpdateRoomInHall.ToString(), UpdateRoomInHallResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.CreateRoomInHall.ToString(), CreateRoomInHallResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.JoinRoom.ToString(), JoinRoomResponse);//TODO用枚举监听
+            //NetManager.instance.AddMsgListener(RequestCode.UpdateRoom.ToString(), UpdateRoomResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.LeaveRoom.ToString(), LeaveRoomResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.CloseRoom.ToString(), DissolveRoomResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.UserReady.ToString(), UserReadyResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.CancelReady.ToString(), UserReadyResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.RemindReady.ToString(), RemindReadyResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.RoomStart.ToString(), EnterRoomResponse);
+            // NetManager.instance.AddMsgListener(RequestCode.LoadFinish.ToString(), LoadFinishProgressResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.GameStart.ToString(), GameStartResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.GameCountdown.ToString(), GameCountdownResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.GameEnd.ToString(), GameOverResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.MandatoryExit.ToString(), MandatoryExitResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.InGame.ToString(), GamingResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.Move.ToString(), PlayerMoveResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.OffLine.ToString(), PlayerOffLineResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.Transmit.ToString(), PlayerTransmitResponse);
+            //NetManager.instance.AddMsgListener(RequestCode.HorseListUpdate.ToString(), RefreshHorseData);
+            //NetManager.instance.AddMsgListener(RequestCode.WalkHorseQuestion.ToString(), WalkHorseQuestionFunc);
+            //NetManager.instance.AddMsgListener(RequestCode.WalkHorseEnd.ToString(), WalkEndHorseFunc);
+            //WebRequestUtils.InitUrl(url,token);//http://47.96.110.234:1818/api/core/v1/
+            //Debug.Log("ServerRequestManager Start");
         }
 
         private void WalkEndHorseFunc(MsgBase msg)
@@ -57,7 +57,7 @@ namespace HotFix
             JsonData jsondata = new JsonData();
             jsondata["id"] = UserInfoManager.mountHorseID;
             string jsonStr = JsonMapper.ToJson(jsondata);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd2, NullFunc, true, jsonStr, RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd2, NullFunc, true, jsonStr, RFrameWork.instance.token);
             PlayerController.GetDownHorseAction();
             UserInfoManager.playerCtrl.horse.transform.ResetLocal();
             UserInfoManager.playerCtrl.horse.transform.parent.rotation = UserInfoManager.horseRotate;
@@ -128,7 +128,7 @@ namespace HotFix
                 JsonData jsondata = new JsonData();
                 jsondata["id"] = UserInfoManager.mountHorseID;
                 string jsonStr = JsonMapper.ToJson(jsondata);
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, NullFunc2, true, jsonStr, RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, NullFunc2, true, jsonStr, RFrameWork.instance.token);
             }
             else
                 HouseManager.RefreshHorse();
@@ -184,7 +184,7 @@ namespace HotFix
             if (string.IsNullOrEmpty(GameMapManager.instance.CurrentMapName))
                 return;
             Debug.Log("ServerRequestManager OnConnectSuccess");
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.OutLineConnectAgain, ConnectFunc, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.OutLineConnectAgain, ConnectFunc, true, "{}", RFrameWork.instance.token);
         }
 
         private void ConnectFunc(string jsonStr)
@@ -300,7 +300,7 @@ namespace HotFix
                 Debug.Log("OnConnectSuccess 连接服务器成功 JoinRoom");
                 UserInfoManager.enterGame = true;
                 //NetManager.instance.Send(new MsgBase(RequestCode.JoinScene.ToString(), JsonUtility.ToJson(new JoinScene("1", UserInfoManager.userID))));
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.NullFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.NullFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
                 GameMapManager.instance.LoadGameScene(ConStr.GAMESCENE, FilesName.PLAYPANEL, (Action obj) =>
                 {
                     ObjectManager.instance.InstantiateObjectAsync("Assets/GameData/Prefabs/Building/Racecourse/Terrain2.prefab", (path, go/*GameObject*/, param1, param2, param3) =>

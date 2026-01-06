@@ -64,7 +64,7 @@ namespace HotFix
                 UserInfoManager.detailPanelType = 6;
                 UserInfoManager.breedPrice = price;
                 UserInfoManager.breedRoomId = roomId;
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + data.id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + data.id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
             }
         }
 

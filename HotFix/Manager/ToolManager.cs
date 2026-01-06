@@ -26,7 +26,7 @@ namespace HotFix
             if (result.Equals("succeed"))
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", "分享成功", () => {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.shareReward, ShareRewardFunc, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.shareReward, ShareRewardFunc, true, "{}", RFrameWork.instance.token);
                 }, null);
             }
             else
@@ -38,7 +38,7 @@ namespace HotFix
 
         private static void ShareRewardFunc(string obj)
         {
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
         }
 
         public static string privacyUrl;
