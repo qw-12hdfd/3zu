@@ -37,12 +37,12 @@ namespace HotFix
         private JointedArm leftJointedArm;
         private JointedArm rightJointedArm;
 
-        public static Action<bool,bool> MountHorse;//上马
+        public static Action<bool, bool> MountHorse;//上马
         public static Action<bool> GetDownHorse;//下马
         public static Action<bool> SetBtnGray;//按钮置灰
         public static Action<bool, int, int> PutFood;//喂食
         public static Action<float> UpdateFoodWebRequestAction;//刷新喂食按钮上的数据
-        public static Action< int, float, double, double> UpdateFeedPriceAndAmountWebRequestAction;//饲料马粟元气值等
+        public static Action<int, float, double, double> UpdateFeedPriceAndAmountWebRequestAction;//饲料马粟元气值等
         public static Action<int, int> UpdateMagicAndMilletAmountAction;//更新马粟元气值等
         public static Action<string> RefreshNumData;
         public static int horseIndex = 0;
@@ -164,7 +164,7 @@ namespace HotFix
         private void ShowMoneyPanel()
         {
             //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, RefreshData, true, "{}", RFrameWork.instance.token);
-            UIManager.instance.PopUpWnd(FilesName.HORSEFEEDPANEL, true, false,money.transform);
+            UIManager.instance.PopUpWnd(FilesName.HORSEFEEDPANEL, true, false, money.transform);
         }
 
         private void LeaseHorsePanel()
@@ -219,8 +219,7 @@ namespace HotFix
 
         private void ShowHorseData()
         {
-            HorseFeedWindow horseFeedPanel = new HorseFeedWindow();
-            horseFeedPanel.HorseStartPanel();
+            UIManager.instance.PopUpWnd(FilesName.HORSEFEEDPANEL, true, false);
             //UserInfoManager.detailPanelType = 1;
             //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + horseID, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
         }
@@ -337,7 +336,7 @@ namespace HotFix
             horseIndex = index;
             UserInfoManager.nowHorseIndex = horseIndex;
             horseID = id;
-            FoodNumText.text = "一次" + UserInfoManager.hoserFeedNumber+"马粟";
+            FoodNumText.text = "一次" + UserInfoManager.hoserFeedNumber + "马粟";
         }
         private void UpdateFoodWebRequest(float num)
         {
@@ -360,7 +359,7 @@ namespace HotFix
             this.feedPrice = fpPrice;
             this.milletAmount = amount;
             this.accountAmount = magicAmount;
-            Debug.Log("更新价格  feedNumber:" + this.feedNumber + "  feedPrice价格:" + this.feedPrice +" 马粟数量："+ this.milletAmount +"  元气值数量："+ this.accountAmount);
+            Debug.Log("更新价格  feedNumber:" + this.feedNumber + "  feedPrice价格:" + this.feedPrice + " 马粟数量：" + this.milletAmount + "  元气值数量：" + this.accountAmount);
 
 
         }
@@ -432,7 +431,8 @@ namespace HotFix
                 PlayerController.GoToPosition("siyangchang");
                 PlayerController.MountHorseAction();
                 isClick2 = false;
-                RFrameWork.instance.OpenCommonConfirm("提示", "马匹送回马厩需返回养马场才可下马", () => {
+                RFrameWork.instance.OpenCommonConfirm("提示", "马匹送回马厩需返回养马场才可下马", () =>
+                {
                 }, null);
             }
             else
@@ -442,7 +442,7 @@ namespace HotFix
             }
         }
 
-        private void ShowMountHorseBtn(bool bl,bool bl2)
+        private void ShowMountHorseBtn(bool bl, bool bl2)
         {
             MountHorseBtn.gameObject.SetActive(bl2 && horseIndex != 0);
             HorseDataBtn.gameObject.SetActive(bl && horseIndex != 0);
@@ -454,12 +454,12 @@ namespace HotFix
             if (code.Equals("200"))
             {
                 JsonData data = jsonData["data"];
-                 Debug.Log("MainWindow BirthWebRequestResponse 接收到的消息是：" + jsonData["data"].ToJson());
+                Debug.Log("MainWindow BirthWebRequestResponse 接收到的消息是：" + jsonData["data"].ToJson());
                 if (data.Count > 0)
                 {
-                     foreach(JsonData item in data)
+                    foreach (JsonData item in data)
                     {
-                         if (item["type"].ToString().Contains("1")|| item["type"].ToString().Contains("3") || item["type"].ToString().Contains("4"))
+                        if (item["type"].ToString().Contains("1") || item["type"].ToString().Contains("3") || item["type"].ToString().Contains("4"))
                         {
                             BirthHorseData horseData = JsonMapper.ToObject<BirthHorseData>(item["horseDataRes"].ToJson());
                             string picUrl = item["pic"].ToString();
@@ -467,8 +467,9 @@ namespace HotFix
                             string bornDatetime = item["bornDatetime"].ToString();
                             object[] objects = { picUrl, caoPos, bornDatetime, item["remark"].ToString() };
                             UIManager.instance.PopUpWnd(FilesName.DOUBLETOASTPANEL, true, false, item["type"].ToString(), objects, horseData);
-                        }else if (item["type"].ToString().Equals("5"))
-                            {
+                        }
+                        else if (item["type"].ToString().Equals("5"))
+                        {
                             RFrameWork.instance.OpenCommonConfirm("马匹取名", "马匹取名审核通过", () => { }, null);
 
                         }
@@ -493,7 +494,7 @@ namespace HotFix
             {
                 JsonData data = jsonData["data"];
                 Debug.Log("MainWindow AgreementWebRequestResponse horse_buy_textarea 接收到的消息是：" + jsonData["data"][0]["value"].ToJson());
-                 
+
 
             }
             else
@@ -527,7 +528,7 @@ namespace HotFix
             JsonData data = new JsonData();
             data["currency"] = "MILLET";
             //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailByUser, WebRequestFuncitons.GetMyFeedNum, true, data.ToJson(), RFrameWork.instance.token); ;
-            if(UserInfoManager.noHorse)
+            if (UserInfoManager.noHorse)
             {
                 JsonData json = new JsonData();
                 json["pageNum"] = 1;
@@ -573,7 +574,7 @@ namespace HotFix
 
         private void JumpFunc()
         {
-            if(UserInfoManager.playerCtrl.jumping==false&& UserInfoManager.playerCtrl.isGround)
+            if (UserInfoManager.playerCtrl.jumping == false && UserInfoManager.playerCtrl.isGround)
                 PlayerController.jumpAction();
         }
 

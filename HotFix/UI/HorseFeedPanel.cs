@@ -1,17 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine.UI;
 
 namespace HotFix
 {
-     class HorseFeedWindow : Window
+    internal class HorseFeedWindow : Window
     {
-        public void HorseStartPanel()
-        {
-            Window horseFeedPanel = UIManager.instance.PopUpWnd(FilesName.HORSEFEEDPANEL, true, false);
+        private Button closeBtn;
 
+
+
+        public override void Awake(object param1 = null, object param2 = null, object param3 = null)
+        {
+            GatAllComponent();
+            AddAllBtnListener();
+        }
+        void AddAllBtnListener()
+        {
+
+            AddButtonClickListener(closeBtn, ClosePanel);
+
+        }
+        private void ClosePanel()
+        {
+            // 确保正确关闭当前窗口
+            UIManager.instance.CloseWnd(FilesName.HORSEFEEDPANEL);
+        }
+        private void GatAllComponent()
+        {
+            closeBtn = m_Transform.Find("CloseBtn").GetComponent<Button>();
         }
     }
 }

@@ -13,9 +13,9 @@ namespace HotFix
         public void ShareStartPanel()
         {
             Window startPanel = UIManager.instance.PopUpWnd(FilesName.SHAREPANEL, true, false);
-            Transform buttonTtansform = startPanel.m_Transform.Find("Back / ReturnBtn");
+            Transform buttonTtansform = startPanel.m_Transform.Find("Back/ReturnBtn");
             Button startButton = buttonTtansform.GetComponent<Button>();
-            startButton.onClick.AddListener(() => { UIManager.instance.CloseWnd(startPanel); });
+            startButton.onClick.AddListener(() => { UIManager.instance.CloseWnd(FilesName.SHAREPANEL); });
 
         }
     }
