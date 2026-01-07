@@ -8,73 +8,77 @@ using UnityEngine.UI;
 
 namespace HotFix
 {
-    public class MapWindow : Window
+    internal class MapWindow:Window
     {
-        private Button siYangChangBtn;
-        private Button fanTuChangBtn;
-        private Button saiMaChangBtn;
-        private Button closeBtn;
-        RawImage rawImage;
-        Camera camera;
-
+        private Button siyangchang;
+        private Button fanzhichang;
+        private Button saimachang;
+        private Button close;
+        private Camera camera;
+        private RawImage rImage;
         public override void Awake(object param1 = null, object param2 = null, object param3 = null)
         {
-            GetALLComponent();
-            AddALLBtnistener();
+            siyangchang = m_Transform.Find("MapBack/siyangchang").GetComponent<Button>();
+            fanzhichang = m_Transform.Find("MapBack/fanzhichang").GetComponent<Button>();
+            saimachang = m_Transform.Find("MapBack/saimachang").GetComponent<Button>();
+            close = m_Transform.Find("MapBack/Close").GetComponent<Button>();
+            camera = m_Transform.Find("Camera").GetComponent<Camera>();
+            rImage = m_Transform.Find("MapBack/RawImage").GetComponent<RawImage>();
+            RenderTexture showTest = new RenderTexture(512, 512, 24, RenderTextureFormat.ARGB32);
+            camera.targetTexture = showTest;
+            rImage.texture = showTest;
+            AddButtonClickListener(siyangchang, GoToSiYangChang);
+            AddButtonClickListener(fanzhichang, GoToFanZhiChang);
+            AddButtonClickListener(saimachang, GoToSaiMaChang);
+            AddButtonClickListener(close, () => { UIManager.instance.CloseWnd(this); });
         }
 
-        void AddALLBtnistener()
+        private void GoToSaiMaChang()
         {
-            AddButtonClickListener(closeBtn, CloseWndFunc);
-            AddButtonClickListener(siYangChangBtn, GoToSiYangChang);
-            AddButtonClickListener(fanTuChangBtn, GoToSaiMaChang);
-            AddButtonClickListener(saiMaChangBtn, GoToFanYuChang);
+            RFrameWork.instance.OpenCommonConfirm("提示", "您是否要传送到赛马场？", () => { PlayerController.GoToPosition("saimachang"); UIManager.instance.CloseWnd(this);
+                MainWindow.GetDownHorse(false);//关闭上马按钮
+                if ( UserInfoManager.maCaoTransform != null)
+                {
+                    MainWindow.MountHorse(false, false);
+                    MainWindow.PutFood(false, 0, UserInfoManager.mountHorseID);
+                    var ani = UserInfoManager.maCaoTransform.Find("HorsePos").GetChild(0).GetComponent<Animator>();
+                    if (!ani.GetBool("Eat") && UserInfoManager.maCaoTransform.Find("fodders").GetChild(0).gameObject.active && !UserInfoManager.playerCtrl.mount)
+                        ani.SetBool("Eat", true);
+                    UserInfoManager.maCaoTransform = null;
+                }
+            }, () => { });
         }
 
-        void CloseWndFunc()
+        private void GoToFanZhiChang()
         {
-            UIManager.instance.CloseWnd(this);
+            RFrameWork.instance.OpenCommonConfirm("提示", "您是否要传送到繁育场？", () => { PlayerController.GoToPosition("fanzhichang"); UIManager.instance.CloseWnd(this);
+                MainWindow.GetDownHorse(false);//关闭上马按钮
+                if (UserInfoManager.maCaoTransform != null)
+                {
+                    MainWindow.MountHorse(false, false);
+                    MainWindow.PutFood(false, 0, UserInfoManager.mountHorseID);
+                    var ani = UserInfoManager.maCaoTransform.Find("HorsePos").GetChild(0).GetComponent<Animator>();
+                    if (!ani.GetBool("Eat") && UserInfoManager.maCaoTransform.Find("fodders").GetChild(0).gameObject.active && !UserInfoManager.playerCtrl.mount)
+                        ani.SetBool("Eat", true);
+                    UserInfoManager.maCaoTransform = null;
+                }
+            }, () => { });
         }
 
         private void GoToSiYangChang()
         {
-            Debug.Log("点击饲养场按钮");
-            RFrameWork.instance.OpenCommonConfirm("提示", "是否传送饲养场？", () =>
-            {
-                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(3));
-
-            }, () => { });
-            // 
-
-        }
-
-        void GoToSaiMaChang()
-        {
-            Debug.Log("点击赛马场按钮");
-            RFrameWork.instance.OpenCommonConfirm("提示", "是否传送赛马场？", () =>
-            {
-                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(3));
-
-            }, () => { });
-            MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(2));
-        }
-
-        void GoToFanYuChang()
-        {
-            RFrameWork.instance.OpenCommonConfirm("提示", "前往繁育场？",()=>{
-                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(1));
-            }, () => { });
-           
-        }
-
-        void GetALLComponent()
-        {
-            siYangChangBtn = m_Transform.Find("MapBack/siyangchang").GetComponent<Button>();
-            fanTuChangBtn = m_Transform.Find("MapBack/fanzhichang").GetComponent<Button>();
-            saiMaChangBtn = m_Transform.Find("MapBack/saimachang").GetComponent<Button>();
-            closeBtn = m_Transform.Find("MapBack/Close").GetComponent<Button>();
-            rawImage = m_Transform.Find("MapBack/RawImage").GetComponent<RawImage>();
-            camera = m_Transform.Find("Camera").GetComponent<Camera>();
+            RFrameWork.instance.OpenCommonConfirm("提示", "您是否要传送到饲养场？", () => { PlayerController.GoToPosition("siyangchang"); UIManager.instance.CloseWnd(this);
+                MainWindow.GetDownHorse(false);//关闭上马按钮
+                if (UserInfoManager.maCaoTransform != null)
+                {
+                    MainWindow.MountHorse(false, false);
+                    MainWindow.PutFood(false, 0, UserInfoManager.mountHorseID);
+                    var ani = UserInfoManager.maCaoTransform.Find("HorsePos").GetChild(0).GetComponent<Animator>();
+                    if (!ani.GetBool("Eat") && UserInfoManager.maCaoTransform.Find("fodders").GetChild(0).gameObject.active && !UserInfoManager.playerCtrl.mount)
+                        ani.SetBool("Eat", true);
+                    UserInfoManager.maCaoTransform = null;
+                }
+            }, ()=> { });
         }
     }
 }

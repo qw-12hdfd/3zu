@@ -552,10 +552,10 @@ namespace HotFix
                 UserInfoManager.allPeiENum = (float)Math.Round(float.Parse(totalShareAmount), 2);
                 UserInfoManager.matchPrice = matchPrice;
                 UserInfoManager.horseMilletNote = horseMilletNote;
-                // if (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) != null && (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText != null)
-                // {
-                //     (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText.text = UserInfoManager.horseMilletNote;
-                // }
+                if (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) != null && (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText != null)
+                {
+                    (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText.text = UserInfoManager.horseMilletNote;
+                }
                 moneyText.text = "         " + UserInfoManager.foodNum + "       ";
                 UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(money.GetComponent<RectTransform>());
             }
