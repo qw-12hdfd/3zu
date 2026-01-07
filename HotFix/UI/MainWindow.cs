@@ -169,10 +169,12 @@ namespace HotFix
 
         private void LeaseHorsePanel()
         {
-            JsonData data = new JsonData();
-            data["pageNum"] = 1;
-            data["pageSize"] = 6;
-            data["priceSort"] = 0;
+            RentWindow rentWindow = new RentWindow();
+            rentWindow.RentPanel();
+            //JsonData data = new JsonData();
+            //data["pageNum"] = 1;
+            //data["pageSize"] = 6;
+            //data["priceSort"] = 0;
             //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
         }
 
