@@ -94,7 +94,7 @@ namespace HotFix
             JsonData data = new JsonData();
             data["metaRoleId"] = UserInfoManager.Sex;
             string str = JsonMapper.ToJson(data);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.enterTheGame, EnterTheGame, true, str, RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.enterTheGame, EnterTheGame, true, str, RFrameWork.instance.token);
         }
 
         private void EnterTheGame(string jsonStr)

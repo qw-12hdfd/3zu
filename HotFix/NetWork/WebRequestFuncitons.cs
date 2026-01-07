@@ -291,7 +291,7 @@ namespace HotFix
                 if (index > 1)
                 {
                     UserInfoManager.detailPanelType = 5;
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -326,7 +326,7 @@ namespace HotFix
                 if (index > 1)
                 {
                     UserInfoManager.detailPanelType = 4;
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -492,7 +492,7 @@ namespace HotFix
                     UIManager.instance.PopUpWnd(FilesName.MAINPANEL, false, false);
                     UIManager.instance.PopUpWnd(FilesName.SINGLETOASTPANEL, true, false, 3, 0);
                 }
-                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.SetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
+                ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.SetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
             }
             else
             {
@@ -535,7 +535,7 @@ namespace HotFix
                 if (num > 0)
                 {
                     StartWindow.setText("------正在请求用户马匹数量------");
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkRole, WebRequestFuncitons.CheckRole, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkRole, WebRequestFuncitons.CheckRole, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -563,15 +563,15 @@ namespace HotFix
                 UserInfoManager.Sex = int.Parse(jsonData["data"]["status"].ToString());
                 if (jsonData["data"]["status"].ToString().Equals("0"))
                 {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
                 }
             }
             else
@@ -617,7 +617,7 @@ namespace HotFix
                 }
                 if (index > 1)
                 {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -651,7 +651,7 @@ namespace HotFix
                 }
                 if (index > 1)
                 {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -685,7 +685,7 @@ namespace HotFix
                 }
                 if (index > 1)
                 {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -987,13 +987,13 @@ namespace HotFix
             string code = jsonData["code"].ToString();
             if (code.Equals("200"))
             {
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
             }
             else
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", jsonData["errorMsg"].ToString(), () => { }, null);
             }
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
         }
     }
 }

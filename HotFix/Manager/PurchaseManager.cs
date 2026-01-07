@@ -33,21 +33,21 @@ namespace HotFix
                         case PayType.HorseFeed:
                             Debug.Log("购买马粟成功");
                              UIManager.instance.CloseWnd(FilesName.PURCHASEHORSEMILLETPANEL);
-                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl,WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
-                            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+                            ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl,WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
+                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
                             break;
                         case PayType.BreedRoom:
                             UIManager.instance.CloseAllWnd();
                             UIManager.instance.PopUpWnd(FilesName.MAINPANEL, false, false);
                             Debug.Log("购买房间成功");
                             //UIManager.instance.CloseWnd(FilesName.ORDEROPENHOUSEPANEL);
-                            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.horseBreadPayResultsUrl, WebRequestFuncitons.HorseBreedSuccess, true, jsonText, RFrameWork.instance.token);
+                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.horseBreadPayResultsUrl, WebRequestFuncitons.HorseBreedSuccess, true, jsonText, RFrameWork.instance.token);
                             break;
                         case PayType.BreedFeed:
                             Debug.Log("购买配种马粟成功");
                              UIManager.instance.CloseWnd(FilesName.PURCHASEBREEDCHARGEPANEL);
-                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
-                            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+                            ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
+                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
                             break;
                         default:
                             break;

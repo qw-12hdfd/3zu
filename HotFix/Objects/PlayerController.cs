@@ -243,7 +243,7 @@ namespace HotFix
                     if (collider.transform.parent.Find("HorsePos").childCount > 0)
                     {
                         UserInfoManager.maCaoTransform = collider.transform.parent;
-                        //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
+                        ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
                         id = int.Parse(collider.transform.parent.name.Split('o')[1]);
                         horseid = int.Parse(collider.transform.parent.Find("HorsePos").GetChild(0).name);
                         MainWindow.PutFood(true, id, horseid);
@@ -286,7 +286,7 @@ namespace HotFix
             {
                 JsonData data = new JsonData();
                 data["horseId"] = UserInfoManager.mountHorseID;
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.getQuestion, WebRequestFuncitons.GetQuestionFunc, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.getQuestion, WebRequestFuncitons.GetQuestionFunc, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
             }
         }
 
@@ -332,7 +332,7 @@ namespace HotFix
             {
                 if (UserInfoManager.mountBreedHorse && mount)
                 {
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.WalkHorseEndFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.WalkHorseEndFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
                 }
                 else
                 {
@@ -477,12 +477,12 @@ namespace HotFix
                         case "StartGame":
                             if (UIManager.instance.IsSignWindowOpen(FilesName.MAINPANEL))
                             {
-                                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkMatch, WebRequestFuncitons.CheckMatch, true, "{}", RFrameWork.instance.token);
+                                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkMatch, WebRequestFuncitons.CheckMatch, true, "{}", RFrameWork.instance.token);
                                 UserInfoManager.returnAct = ReturnAct;
                             }
                             break;
                         case "CreateRoom":
-                            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyMHorsesList, true, JsonMapper.ToJson(new HorseSex(0, 2, 1, 1)), RFrameWork.instance.token);
+                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyMHorsesList, true, JsonMapper.ToJson(new HorseSex(0, 2, 1, 1)), RFrameWork.instance.token);
                             break;
                         case "FZCDoor":
                             if (hit.transform.parent.Find("Room_tips").Find("red").gameObject.active)
@@ -605,7 +605,7 @@ namespace HotFix
             UserInfoManager.detailPanelType = 2;
             string[] arr = new string[2] { "2", "9" };
             HorseListType type = new HorseListType(arr);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.CanPlayGame, true, JsonMapper.ToJson(type), RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.CanPlayGame, true, JsonMapper.ToJson(type), RFrameWork.instance.token);
         }
 
         public override void OnFixUpdate()

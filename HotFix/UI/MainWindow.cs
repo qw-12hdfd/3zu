@@ -87,16 +87,16 @@ namespace HotFix
             AddAllButtonClickListener();
             AgreementData data2 = new AgreementData("horse_buy_textarea");
             string jsonStr2 = JsonMapper.ToJson(data2);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, AgreementWebRequestResponse, true, jsonStr2, RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, AgreementWebRequestResponse, true, jsonStr2, RFrameWork.instance.token);
             AgreementData data3 = new AgreementData("horse_rent_time");
             string jsonStr3 = JsonMapper.ToJson(data3);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, GetTimeConfig, true, jsonStr3, RFrameWork.instance.token);
-            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.horseBreadPayResultsUrl, WebRequestFuncitons.HorseBreedSuccess, true, jsonText, RFrameWork.instance.token);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.horseBirthListUrl, BirthWebRequestResponse, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, GetTimeConfig, true, jsonStr3, RFrameWork.instance.token);
+            ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.horseBreadPayResultsUrl, WebRequestFuncitons.HorseBreedSuccess, true, jsonText, RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.horseBirthListUrl, BirthWebRequestResponse, true, "{}", RFrameWork.instance.token);
             ListFront listFront;
             listFront = new ListFront("horse_rent_config");
             string jsonStr = JsonMapper.ToJson(listFront);
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, GetConfig, true, jsonStr, RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, GetConfig, true, jsonStr, RFrameWork.instance.token);
 
         }
 
@@ -163,7 +163,7 @@ namespace HotFix
 
         private void ShowMoneyPanel()
         {
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, RefreshData, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, RefreshData, true, "{}", RFrameWork.instance.token);
             UIManager.instance.PopUpWnd(FilesName.HORSEFEEDPANEL, true, false,money.transform);
         }
 
@@ -173,7 +173,7 @@ namespace HotFix
             data["pageNum"] = 1;
             data["pageSize"] = 6;
             data["priceSort"] = 0;
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
         }
 
         private void ChangePlayer()
@@ -185,7 +185,7 @@ namespace HotFix
         {
             //ToolManager.ShareMsgToApp(m_Transform.GetComponent<RectTransform>());
             UserInfoManager.rankStr = "邀请您下载元年app体验「马术元宇宙」";
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myInvite, WebRequestFuncitons.ShareFunc, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myInvite, WebRequestFuncitons.ShareFunc, true, "{}", RFrameWork.instance.token);
         }
 
         private void GetAllComponent()
@@ -216,7 +216,7 @@ namespace HotFix
         private void ShowHorseData()
         {
             UserInfoManager.detailPanelType = 1;
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + horseID, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + horseID, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
         }
 
         private void FeedHorseClicked()
@@ -229,11 +229,11 @@ namespace HotFix
             {
                 HorseIdData data = new HorseIdData(horseID);
                 string jsonStr = JsonMapper.ToJson(data);
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.feedHorseUrl, FeedHorseResult, true, jsonStr, RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.feedHorseUrl, FeedHorseResult, true, jsonStr, RFrameWork.instance.token);
             }
             else
             {
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, GetMilletDetail, true, "{}", RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, GetMilletDetail, true, "{}", RFrameWork.instance.token);
             }
         }
         internal void GetMilletDetail(string jsonStr)
@@ -276,11 +276,11 @@ namespace HotFix
                 if (status.Equals("3"))
                 {
                     //UpdateFoodWebRequest(milletCount);
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
+                    ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
                     RFrameWork.instance.OpenCommonConfirm("提示", "投喂成功", () =>
                     {
                     }, null);
-                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
                 }
                 else if (status.Equals("0"))
                 {
@@ -288,7 +288,7 @@ namespace HotFix
                     RFrameWork.instance.OpenCommonConfirm("提示", remark, () =>
                     {
 
-                        WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, GetMilletDetail, true, "{}", RFrameWork.instance.token);
+                        //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, GetMilletDetail, true, "{}", RFrameWork.instance.token);
 
 
                     }, null);
@@ -374,7 +374,7 @@ namespace HotFix
             if (isClick3)
                 return;
             isClick3 = true;
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WalkHorseEndFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WalkHorseEndFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
         }
 
         internal void WalkHorseEndFunc(string jsonStr)
@@ -410,7 +410,7 @@ namespace HotFix
                 return;
             isClick2 = true;
             UserInfoManager.mountHorseID = horseID;
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorse, WalkHorseFunc, true, JsonMapper.ToJson(new HorseIdData(horseID)), RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorse, WalkHorseFunc, true, JsonMapper.ToJson(new HorseIdData(horseID)), RFrameWork.instance.token);
         }
 
         internal void WalkHorseFunc(string jsonStr)
@@ -520,16 +520,16 @@ namespace HotFix
             UserInfoManager.mount = false;
             JsonData data = new JsonData();
             data["currency"] = "MILLET";
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailByUser, WebRequestFuncitons.GetMyFeedNum, true, data.ToJson(), RFrameWork.instance.token); ;
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailByUser, WebRequestFuncitons.GetMyFeedNum, true, data.ToJson(), RFrameWork.instance.token); ;
             if(UserInfoManager.noHorse)
             {
                 JsonData json = new JsonData();
                 json["pageNum"] = 1;
                 json["pageSize"] = 6;
                 json["priceSort"] = 0;
-                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(json), RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(json), RFrameWork.instance.token);
             }
-            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, RefreshData, true, "{}", RFrameWork.instance.token);
+            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, RefreshData, true, "{}", RFrameWork.instance.token);
         }
 
         private void RefreshData(string jsonStr)
@@ -552,10 +552,10 @@ namespace HotFix
                 UserInfoManager.allPeiENum = (float)Math.Round(float.Parse(totalShareAmount), 2);
                 UserInfoManager.matchPrice = matchPrice;
                 UserInfoManager.horseMilletNote = horseMilletNote;
-                if (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) != null && (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText != null)
-                {
-                    (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText.text = UserInfoManager.horseMilletNote;
-                }
+                // if (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) != null && (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText != null)
+                // {
+                //     (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText.text = UserInfoManager.horseMilletNote;
+                // }
                 moneyText.text = "         " + UserInfoManager.foodNum + "       ";
                 UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(money.GetComponent<RectTransform>());
             }
