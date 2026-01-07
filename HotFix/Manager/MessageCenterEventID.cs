@@ -9,8 +9,10 @@ namespace HotFix
     /// <summary>
     /// 消息中心
     /// </summary>
-    public class MessageCenterEventID
+    public enum MessageCenterEventID
     {
-        public const int PlayerChangePosition = 1001;
+        GoToGame,
+        RefreshMainItem,
+        RefreshAllMainItem,
     }
 }

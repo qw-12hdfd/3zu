@@ -38,8 +38,8 @@ namespace HotFix
 
         private void GoToSiYangChang()
         {
-            Debug.Log("点击赛马场按钮");
-            RFrameWork.instance.OpenCommonConfirm("提示", "是否传送繁育场？", () =>
+            Debug.Log("点击饲养场按钮");
+            RFrameWork.instance.OpenCommonConfirm("提示", "是否传送饲养场？", () =>
             {
                 MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(3));
 
@@ -50,6 +50,12 @@ namespace HotFix
 
         void GoToSaiMaChang()
         {
+            Debug.Log("点击赛马场按钮");
+            RFrameWork.instance.OpenCommonConfirm("提示", "是否传送赛马场？", () =>
+            {
+                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(3));
+
+            }, () => { });
             MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(2));
         }
 

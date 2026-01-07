@@ -169,13 +169,11 @@ namespace HotFix
 
         private void LeaseHorsePanel()
         {
-            LeaseWindow leaseWindow = new LeaseWindow();
-            leaseWindow.LeasePanel();
-            //JsonData data = new JsonData();
-            //data["pageNum"] = 1;
-            //data["pageSize"] = 6;
-            //data["priceSort"] = 0;
-            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
+            JsonData data = new JsonData();
+            data["pageNum"] = 1;
+            data["pageSize"] = 6;
+            data["priceSort"] = 0;
+            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.rentHorseList, WebRequestFuncitons.GetRentHorseList, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
         }
 
         private void ChangePlayer()
@@ -554,10 +552,10 @@ namespace HotFix
                 UserInfoManager.allPeiENum = (float)Math.Round(float.Parse(totalShareAmount), 2);
                 UserInfoManager.matchPrice = matchPrice;
                 UserInfoManager.horseMilletNote = horseMilletNote;
-                if (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) != null && (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText != null)
-                {
-                    (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText.text = UserInfoManager.horseMilletNote;
-                }
+                // if (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) != null && (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText != null)
+                // {
+                //     (UIManager.instance.GetWndByName(FilesName.HORSEFEEDPANEL) as HorseFeedWindow).desText.text = UserInfoManager.horseMilletNote;
+                // }
                 moneyText.text = "         " + UserInfoManager.foodNum + "       ";
                 UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(money.GetComponent<RectTransform>());
             }

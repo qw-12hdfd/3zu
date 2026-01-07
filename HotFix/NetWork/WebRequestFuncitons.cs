@@ -54,7 +54,7 @@ namespace HotFix
                     historyData.Add(data);
                 }
                 UserInfoManager.horseHistoryData = historyData;
-                DetailWindow.SetDetailPanelActive(3);
+                //DetailWindow.SetDetailPanelActive(3);
             }
             else
             {
@@ -210,7 +210,7 @@ namespace HotFix
                     GameData data = JsonMapper.ToObject<GameData>(item.ToJson());
                     list.Add(data);
                 }
-                GameListWindow.SetGameListData(list);
+                //GameListWindow.SetGameListData(list);
             }
             else
             {
@@ -231,7 +231,7 @@ namespace HotFix
                     list.Add(data);
                     Debug.Log(data.id + "   " + data.roomNumber);
                 }
-                GameListWindow.SetHistoryListData(list);
+                //GameListWindow.SetHistoryListData(list);
             }
             else
             {
@@ -246,10 +246,10 @@ namespace HotFix
             if (!code.Equals("200"))
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", jsonData["errorMsg"].ToString(), () => {
-                    if (RoomWindow.EnterRoomFailedResponseAction != null)
-                    {
-                        RoomWindow.EnterRoomFailedResponseAction();
-                    }
+                    // if (RoomWindow.EnterRoomFailedResponseAction != null)
+                    // {
+                    //     RoomWindow.EnterRoomFailedResponseAction();
+                    // }
                 }, null);
 
             }
@@ -263,10 +263,10 @@ namespace HotFix
             if (!code.Equals("200"))
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", jsonData["errorMsg"].ToString(), () => {
-                    if (RoomWindow.EnterRoomFailedResponseAction != null)
-                    {
-                        RoomWindow.EnterRoomFailedResponseAction();
-                    }
+                    // if (RoomWindow.EnterRoomFailedResponseAction != null)
+                    // {
+                    //     RoomWindow.EnterRoomFailedResponseAction();
+                    // }
                 }, null);
 
             }
@@ -291,7 +291,7 @@ namespace HotFix
                 if (index > 1)
                 {
                     UserInfoManager.detailPanelType = 5;
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -326,7 +326,7 @@ namespace HotFix
                 if (index > 1)
                 {
                     UserInfoManager.detailPanelType = 4;
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -448,7 +448,7 @@ namespace HotFix
             if (code.Equals("200"))
             {
                 string status = jsonData["data"]["status"].ToString(); 
-                (UIManager.instance.GetWndByName(FilesName.PASSWORDINFOPANEL) as PasswordInfoWindow).isClick = true;
+                // (UIManager.instance.GetWndByName(FilesName.PASSWORDINFOPANEL) as PasswordInfoWindow).isClick = true;
                 if (status == "1")
                 {
                     //母马配种成功 传送逻辑
@@ -492,7 +492,7 @@ namespace HotFix
                     UIManager.instance.PopUpWnd(FilesName.MAINPANEL, false, false);
                     UIManager.instance.PopUpWnd(FilesName.SINGLETOASTPANEL, true, false, 3, 0);
                 }
-                ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.SetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
+                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.SetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
             }
             else
             {
@@ -535,7 +535,7 @@ namespace HotFix
                 if (num > 0)
                 {
                     StartWindow.setText("------正在请求用户马匹数量------");
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkRole, WebRequestFuncitons.CheckRole, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkRole, WebRequestFuncitons.CheckRole, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -563,15 +563,15 @@ namespace HotFix
                 UserInfoManager.Sex = int.Parse(jsonData["data"]["status"].ToString());
                 if (jsonData["data"]["status"].ToString().Equals("0"))
                 {
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.breedSiteConfigUrl, WebRequestFuncitons.GetBreedSiteConfig, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.myPhotoUrl, WebRequestFuncitons.SendToken, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyHorsesList, true, "{}", RFrameWork.instance.token);
                 }
             }
             else
@@ -617,7 +617,7 @@ namespace HotFix
                 }
                 if (index > 1)
                 {
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -651,7 +651,7 @@ namespace HotFix
                 }
                 if (index > 1)
                 {
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -685,7 +685,7 @@ namespace HotFix
                 }
                 if (index > 1)
                 {
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.detailFront + "/" + UserInfoManager.NowHorseList[1].id, WebRequestFuncitons.GetHorseDetailData, true, "{}", RFrameWork.instance.token);
                 }
                 else
                 {
@@ -734,7 +734,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetMyQuotaData " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.QuotaList,list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.QuotaList,list);
             }
             else
             {
@@ -781,7 +781,7 @@ namespace HotFix
                     Debug.Log("马排名的信息：" + horseData.rank);
                 }
                 UIManager.instance.PopUpWnd(FilesName.SETTLEMENTPANEL, true, false, datas);
-                SettlementWindow.SetPanelData(roomId, horseId, gameStartDatetime, rank, ((int)float.Parse(datas[rank - 1].rewardAmount)).ToString(),0);
+                // SettlementWindow.SetPanelData(roomId, horseId, gameStartDatetime, rank, ((int)float.Parse(datas[rank - 1].rewardAmount)).ToString(),0);
             }
             else
             {
@@ -910,7 +910,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetRentHorseList " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HorseRentOut, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HorseRentOut, list);
             }
             else
             {
@@ -931,7 +931,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetMyRentOutHorseList " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.MyRentOut, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.MyRentOut, list);
             }
             else
             {
@@ -952,7 +952,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetHistoryRecord " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HistoryBill, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.HistoryBill, list);
             }
             else
             {
@@ -973,7 +973,7 @@ namespace HotFix
                     list.Add(item);
                 }
                 Debug.Log("GetMyRentHorseList " + list.Count);
-                UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.LeaseHorse, list);
+                // UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL, true, false, CommonDataWindowType.LeaseHorse, list);
             }
             else
             {
@@ -987,13 +987,13 @@ namespace HotFix
             string code = jsonData["code"].ToString();
             if (code.Equals("200"))
             {
-                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
             }
             else
             {
                 RFrameWork.instance.OpenCommonConfirm("提示", jsonData["errorMsg"].ToString(), () => { }, null);
             }
-            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
+            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletAccount, MainWindow.RefreshNumData, true, "{}", RFrameWork.instance.token);
         }
     }
 }

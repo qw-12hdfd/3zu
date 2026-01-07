@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace HotFix.Manager
 {
