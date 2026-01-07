@@ -33,25 +33,15 @@ namespace HotFix
             UIManager.instance.CloseWnd(this);
         }
         void GoToSiYangChang() {
-            RFrameWork.instance.OpenCommonConfirm("提示", "前往饲养厂?", () =>
-            {
-                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(1));
-            }, () => { });
+            MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition,new Notification(3));
         }
         void GoToSaiMachang()
         {
-            RFrameWork.instance.OpenCommonConfirm("提示", "前往赛马厂?", () =>
-            {
-                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(2));
-            }, () => { });
+            MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(2));
         }
         void GoToFanYunchang()
         {
-            RFrameWork.instance.OpenCommonConfirm("提示", "前往繁育厂?", () =>
-            {
-                MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(3));
-            }, () => { });
-           
+            MessageCenter.instance.Dispatch(MessageCenterEventID.PlayerChangePosition, new Notification(1));
         }
         void GetALLComponent() {
             siYangChangBtn=m_Transform.Find("MapBack/siyangchang").GetComponent<Button>();
