@@ -11,6 +11,6 @@ namespace HotFix
     /// </summary>
     public class MessageCenterEventID
     {
-   public const int     PlayerChangePosition=1001;
+        public const int PlayerChangePosition = 1001;
     }
 }
