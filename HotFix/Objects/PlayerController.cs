@@ -113,7 +113,7 @@ namespace HotFix
         public override void Awake(object param1 = null, object param2 = null, object param3 = null)
         {
             name = m_Transform.Find("Name").GetComponent<TextMesh>();
-            name.text = "huangmao";
+            name.text = "Rease";
             name.gameObject.SetActive(true);
             name.color = Color.green;
             moveAction = Move;
@@ -131,34 +131,31 @@ namespace HotFix
             triggerEvent.TriggerEnter = SetTriggerEnter;
             triggerEvent.TriggerExit = SetHorseExit;
             UserInfoManager.camera.GetComponent<Animator>().enabled = false;
-            AddAllEventListener();
+            AddALLEventListener();
         }
-        void AddAllEventListener()
+        void AddALLEventListener()
         {
             MessageCenter.instance.AddListener(MessageCenterEventID.PlayerChangePosition, PlayerChangePosition);
         }
-
         void PlayerChangePosition(Notification notification)
         {
             int type = (int)notification.content[0];
             Transform target = null;
             UserInfoManager.cmCamera.gameObject.SetActive(false);
             playerCtl.enabled = false;
-
             switch (type)
             {
-                case 1:
+                case 1://饲养场
                     target = UserInfoManager.transferPoint.Find("siyangchang");
-
                     m_Transform.position = target.position;
                     m_Transform.rotation = target.rotation;
                     break;
-                case 2:
+                case 2://赛马场
                     target = UserInfoManager.transferPoint.Find("saimachang");
                     m_Transform.position = target.position;
                     m_Transform.rotation = target.rotation;
                     break;
-                case 3:
+                case 3://饲养场
                     target = UserInfoManager.transferPoint.Find("fanzhichang");
                     m_Transform.position = target.position;
                     m_Transform.rotation = target.rotation;
@@ -170,12 +167,11 @@ namespace HotFix
             playerCtl.enabled = true;
             UIManager.instance.CloseWnd(FilesName.MAPPANEL);
         }
-
         private void PlayerGoToPos(string name)
         {
             UserInfoManager.cmCamera.gameObject.SetActive(false);
             Transform playerObj = null;
-            if (horse != null)
+            if (horse!=null)
                 playerObj = horse.transform;
             else
                 playerObj = m_Transform;
@@ -243,7 +239,7 @@ namespace HotFix
                     if (collider.transform.parent.Find("HorsePos").childCount > 0)
                     {
                         UserInfoManager.maCaoTransform = collider.transform.parent;
-                        ////WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
+                        //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.milletDetailUrl, WebRequestFuncitons.GetMilletDetailOnly, true, "{}", RFrameWork.instance.token);
                         id = int.Parse(collider.transform.parent.name.Split('o')[1]);
                         horseid = int.Parse(collider.transform.parent.Find("HorsePos").GetChild(0).name);
                         MainWindow.PutFood(true, id, horseid);
@@ -260,7 +256,7 @@ namespace HotFix
                     break;
             }
         }
-
+        
 
         private void SetTriggerEnter2(Collider collider)
         {
@@ -282,11 +278,11 @@ namespace HotFix
 
         public void GetQuestionFunc()
         {
-            if (mount && UIManager.instance.IsSignWindowOpen(FilesName.MAINPANEL))
+            if (mount&&UIManager.instance.IsSignWindowOpen(FilesName.MAINPANEL))
             {
                 JsonData data = new JsonData();
                 data["horseId"] = UserInfoManager.mountHorseID;
-                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.getQuestion, WebRequestFuncitons.GetQuestionFunc, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
+                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.getQuestion, WebRequestFuncitons.GetQuestionFunc, true, JsonMapper.ToJson(data), RFrameWork.instance.token);
             }
         }
 
@@ -332,7 +328,7 @@ namespace HotFix
             {
                 if (UserInfoManager.mountBreedHorse && mount)
                 {
-                    //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.WalkHorseEndFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
+                    WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.WalkHorseEndFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
                 }
                 else
                 {
@@ -356,7 +352,7 @@ namespace HotFix
             MainWindow.SetBtnGray(false);
             UserInfoManager.mount = true;
             m_Transform.SetParent(horse.transform.Find("CG/Pelvis/Spine/PlayerPos")); //人物跟随马匹身上的父节点
-            if (UserInfoManager.Sex == 1)
+            if(UserInfoManager.Sex == 1)
             {
                 horse.transform.Find("CG/Pelvis/Spine/PlayerPos").localPosition = new Vector3(-0.5053826f, 1.195526f, 0.5479326f);
             }
@@ -367,7 +363,7 @@ namespace HotFix
             playerCtl.enabled = false; //将人物控制器关闭 否则无法移动位置
             m_Transform.ResetLocal();//数据归零
             animator.SetTrigger("MountHorse"); //播放上马动画
-            MainWindow.MountHorse(false, false);//关闭上马按钮
+            MainWindow.MountHorse(false,false);//关闭上马按钮
             MainWindow.PutFood(false, id, horseid);
             horseAni = horse.GetComponent<Animator>();
             horseTrigger = horse.GetComponent<TriggerEvent>();
@@ -398,15 +394,15 @@ namespace HotFix
             switch (collider.gameObject.tag)
             {
                 case "MaCao":
-                    MainWindow.MountHorse(false, false);
-                    MainWindow.PutFood(false, 0, 0);
-                    if (UserInfoManager.maCaoTransform && UserInfoManager.maCaoTransform.Find("HorsePos").childCount > 0)
+                    MainWindow.MountHorse(false,false );
+                    MainWindow.PutFood(false, 0,0);
+                    if(UserInfoManager.maCaoTransform&& UserInfoManager.maCaoTransform.Find("HorsePos").childCount>0)
                     {
                         Animator ani = UserInfoManager.maCaoTransform.Find("HorsePos").GetChild(0).GetComponent<Animator>();
                         if (!ani.GetBool("Eat") && UserInfoManager.maCaoTransform.Find("fodders").GetChild(0).gameObject.activeSelf && !mount)
                             ani.SetBool("Eat", true);
                     }
-
+                    
                     UserInfoManager.maCaoTransform = null;
                     break;
                 case "Door":
@@ -445,7 +441,7 @@ namespace HotFix
 
         public override void OnUpdate()
         {
-            if (mount && horseAni != null && horseAni.GetBool("Eat"))
+            if (mount&&horseAni!=null&&horseAni.GetBool("Eat"))
             {
                 horseAni.SetBool("Eat", false);
             }
@@ -477,12 +473,12 @@ namespace HotFix
                         case "StartGame":
                             if (UIManager.instance.IsSignWindowOpen(FilesName.MAINPANEL))
                             {
-                                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkMatch, WebRequestFuncitons.CheckMatch, true, "{}", RFrameWork.instance.token);
+                                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.checkMatch, WebRequestFuncitons.CheckMatch, true, "{}", RFrameWork.instance.token);
                                 UserInfoManager.returnAct = ReturnAct;
                             }
                             break;
                         case "CreateRoom":
-                            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyMHorsesList, true, JsonMapper.ToJson(new HorseSex(0, 2, 1, 1)), RFrameWork.instance.token);
+                            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.GetMyMHorsesList, true, JsonMapper.ToJson(new HorseSex(0, 2,1,1)), RFrameWork.instance.token);
                             break;
                         case "FZCDoor":
                             if (hit.transform.parent.Find("Room_tips").Find("red").gameObject.active)
@@ -533,7 +529,7 @@ namespace HotFix
                         animator.SetBool(walkState, false);
                         animator.SetInteger("Jump", 2);
                     }
-                    if (animator.GetBool(walkState))
+                    if(animator.GetBool(walkState))
                         playerCtl.Move(moveDirection * Time.deltaTime * speed);
                 }
             }
@@ -584,16 +580,16 @@ namespace HotFix
                 }
                 if (isGround && mount)
                 {
-                    if (horseAni.GetBool("Fall"))
-                        horseAni.SetBool("Fall", false);
-                    if (!moving)
-                        getDownHorse = true;
+                    if(horseAni.GetBool("Fall"))
+                    horseAni.SetBool("Fall", false);
+                    if(!moving)
+                    getDownHorse = true;
                 }
             }
 
             if (UnityEngine.Input.GetKey(KeyCode.Space))
             {
-                if (jumping == false && isGround)
+                if(jumping == false && isGround)
                 {
                     Jump();
                 }
@@ -605,7 +601,7 @@ namespace HotFix
             UserInfoManager.detailPanelType = 2;
             string[] arr = new string[2] { "2", "9" };
             HorseListType type = new HorseListType(arr);
-            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.CanPlayGame, true, JsonMapper.ToJson(type), RFrameWork.instance.token);
+            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFrontUrl, WebRequestFuncitons.CanPlayGame, true, JsonMapper.ToJson(type), RFrameWork.instance.token);
         }
 
         public override void OnFixUpdate()
@@ -620,7 +616,7 @@ namespace HotFix
                 var colliders = Physics.OverlapCapsule(pointBottom, pointTop, 0.2f, ignoreMask);
                 var colliders2 = Physics.OverlapCapsule(pointBottom, pointTop, 0.2f, ignoreMask2);
                 Debug.DrawLine(pointBottom, pointTop, Color.yellow);
-                if (colliders2.Length != 0)
+                if (colliders2.Length!=0)
                 {
                     isGround = true;
                     playerCtl.enabled = true;

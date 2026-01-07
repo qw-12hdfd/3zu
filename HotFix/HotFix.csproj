@@ -59,43 +59,43 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ScreenCaptureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\2022.3.62f1c1\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\com.unity.template.universal-2d-2.1.3\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>D:\2022.3.62f1c1\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\com.unity.template.universal-2d-2.1.3\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -147,12 +147,50 @@
     <Compile Include="Objects\PlayStateItem.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\LoadingWindow.cs" />
+    <Compile Include="UI\BreedingWindow.cs" />
+    <Compile Include="UI\DetailWindow.cs" />
+    <Compile Include="UI\GameDetailWindow.cs" />
+    <Compile Include="UI\IfSucceedWindow.cs" />
+    <Compile Include="UI\Item\GameHistoryItem.cs" />
+    <Compile Include="UI\Item\GameListItem.cs" />
+    <Compile Include="UI\GameListWindow.cs" />
+    <Compile Include="UI\DoubleToastWindow.cs" />
+    <Compile Include="UI\ExchangeHorseMilletWindow.cs" />
+    <Compile Include="UI\GainHorseWindow.cs" />
+    <Compile Include="UI\LeaseWindow.cs" />
+    <Compile Include="UI\OrderOpenHouseWindow.cs" />
+    <Compile Include="UI\PasswordInfoWindow.cs" />
+    <Compile Include="UI\PriceAffirmWindow.cs" />
+    <Compile Include="UI\PropertyWindow.cs" />
+    <Compile Include="UI\PuppyMillWindow.cs" />
+    <Compile Include="UI\PurchaseBreedChargeWindow.cs" />
+    <Compile Include="UI\PurchaseHorseMilletWindow.cs" />
+    <Compile Include="UI\PurchaseWindow.cs" />
+    <Compile Include="UI\QuestionsWindow.cs" />
+    <Compile Include="UI\RentWindow.cs" />
+    <Compile Include="UI\ShareWindow.cs" />
+    <Compile Include="UI\SingleToastWindow.cs" />
+    <Compile Include="UI\UserAgreementWindow.cs" />
+    <Compile Include="UI\GrowUpWindow.cs" />
     <Compile Include="UI\MapWindow.cs" />
+    <Compile Include="UI\AddFeedWindow.cs" />
+    <Compile Include="UI\BillWindow.cs" />
+    <Compile Include="UI\CommonDataWindow.cs" />
+    <Compile Include="UI\HorseFeedWindow.cs" />
+    <Compile Include="UI\InfoConfirmWindow.cs" />
+    <Compile Include="UI\Item\BillItem.cs" />
+    <Compile Include="UI\QuitGameWindow.cs" />
     <Compile Include="UI\SelectPlayerWindow.cs" />
+    <Compile Include="UI\Item\HistoryItem.cs" />
+    <Compile Include="UI\LoadingWindow.cs" />
     <Compile Include="UI\StartWindow.cs" />
     <Compile Include="UI\MainWindow.cs" />
+    <Compile Include="UI\PlayWindow.cs" />
+    <Compile Include="UI\Item\ResultRankItem.cs" />
     <Compile Include="UI\Item\RankItem.cs" />
+    <Compile Include="UI\RoomWindow.cs" />
+    <Compile Include="UI\SettlementWindow.cs" />
+    <Compile Include="UI\ToPrepareWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />

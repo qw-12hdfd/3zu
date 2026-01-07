@@ -57,7 +57,7 @@ namespace HotFix
             JsonData jsondata = new JsonData();
             jsondata["id"] = UserInfoManager.mountHorseID;
             string jsonStr = JsonMapper.ToJson(jsondata);
-            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd2, NullFunc, true, jsonStr, RFrameWork.instance.token);
+            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd2, NullFunc, true, jsonStr, RFrameWork.instance.token);
             PlayerController.GetDownHorseAction();
             UserInfoManager.playerCtrl.horse.transform.ResetLocal();
             UserInfoManager.playerCtrl.horse.transform.parent.rotation = UserInfoManager.horseRotate;
@@ -128,7 +128,7 @@ namespace HotFix
                 JsonData jsondata = new JsonData();
                 jsondata["id"] = UserInfoManager.mountHorseID;
                 string jsonStr = JsonMapper.ToJson(jsondata);
-                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, NullFunc2, true, jsonStr, RFrameWork.instance.token);
+                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, NullFunc2, true, jsonStr, RFrameWork.instance.token);
             }
             else
                 HouseManager.RefreshHorse();
@@ -163,7 +163,7 @@ namespace HotFix
         {
             Debug.Log(" GamingResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //PlayWindow.GamingResponseAction(data);
+            PlayWindow.GamingResponseAction(data);
 
         }
         private void OnConnectFailed(string str)
@@ -184,7 +184,7 @@ namespace HotFix
             if (string.IsNullOrEmpty(GameMapManager.instance.CurrentMapName))
                 return;
             Debug.Log("ServerRequestManager OnConnectSuccess");
-            //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.OutLineConnectAgain, ConnectFunc, true, "{}", RFrameWork.instance.token);
+            WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.OutLineConnectAgain, ConnectFunc, true, "{}", RFrameWork.instance.token);
         }
 
         private void ConnectFunc(string jsonStr)
@@ -279,14 +279,14 @@ namespace HotFix
 
         private void CreateRoomInHallResponse(MsgBase msg)
         {
-            // if(UIManager.instance.GetWndByName(FilesName.GAMELISTPANEL)!=null)
-            // GameListWindow.addItemToList();
+            if(UIManager.instance.GetWndByName(FilesName.GAMELISTPANEL)!=null)
+            GameListWindow.addItemToList();
         }
 
         private void UpdateRoomInHallResponse(MsgBase msg)
         {
-            // if (UIManager.instance.GetWndByName(FilesName.GAMELISTPANEL) != null)
-            //     GameListWindow.addItemToList();
+            if (UIManager.instance.GetWndByName(FilesName.GAMELISTPANEL) != null)
+                GameListWindow.addItemToList();
         }
         
        
@@ -300,7 +300,7 @@ namespace HotFix
                 Debug.Log("OnConnectSuccess 连接服务器成功 JoinRoom");
                 UserInfoManager.enterGame = true;
                 //NetManager.instance.Send(new MsgBase(RequestCode.JoinScene.ToString(), JsonUtility.ToJson(new JoinScene("1", UserInfoManager.userID))));
-                //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.NullFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
+                WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.walkHorseEnd, WebRequestFuncitons.NullFunc, true, JsonMapper.ToJson(new HorseIdData(UserInfoManager.mountHorseID)), RFrameWork.instance.token);
                 GameMapManager.instance.LoadGameScene(ConStr.GAMESCENE, FilesName.PLAYPANEL, (Action obj) =>
                 {
                     ObjectManager.instance.InstantiateObjectAsync("Assets/GameData/Prefabs/Building/Racecourse/Terrain2.prefab", (path, go/*GameObject*/, param1, param2, param3) =>
@@ -322,8 +322,8 @@ namespace HotFix
                         UserInfoManager.RoomId = int.Parse(jsonData["data"]["id"].ToString());
                         Debug.Log(" JoinRoomResponse data服务器发送的消息:" + msg.data + "  roomId:" + UserInfoManager.RoomId);
                         string data = msg.data;
-                        //Debug.Log("加入房间的action是否为空" + RoomWindow.JoinRoomResponseAction);
-                        //RoomWindow.JoinRoomResponseAction(data);
+                        Debug.Log("加入房间的action是否为空" + RoomWindow.JoinRoomResponseAction);
+                        RoomWindow.JoinRoomResponseAction(data);
                         EcsManager.ClearAllPlayer();
 
                     }, LoadResPriority.RES_HIGHT, false, null, null, null, true);
@@ -337,8 +337,8 @@ namespace HotFix
                 UserInfoManager.RoomId = int.Parse(jsonData["data"]["id"].ToString());
                 Debug.Log(" JoinRoomResponse data服务器发送的消息:" + msg.data + "  roomId:" + UserInfoManager.RoomId);
                 string data = msg.data;
-                //Debug.Log("加入房间的action是否为空" + RoomWindow.JoinRoomResponseAction);
-                //RoomWindow.JoinRoomResponseAction(data);
+                Debug.Log("加入房间的action是否为空" + RoomWindow.JoinRoomResponseAction);
+                RoomWindow.JoinRoomResponseAction(data);
             }
 
         }
@@ -346,20 +346,20 @@ namespace HotFix
         {
             Debug.Log(" UpdateRoomResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //RoomWindow.UpdateRoomResponseAction(data);
+            RoomWindow.UpdateRoomResponseAction(data);
         }
         private void LeaveRoomResponse(MsgBase msg)
         {
             Debug.Log(" LeaveRoomResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //PlayWindow.LeaveUpdateRoomResponseAction(data);
+            PlayWindow.LeaveUpdateRoomResponseAction(data);
 
         }
         private void DissolveRoomResponse(MsgBase msg)
         {
             Debug.Log(" DissolveRoomResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //RoomWindow.DissolveRoomResponseAction(data);
+            RoomWindow.DissolveRoomResponseAction(data);
 
         }
 
@@ -367,42 +367,42 @@ namespace HotFix
         {
             string data = msg.data;
             Debug.Log(" UserReadyResponse data服务器发送的消息:" + data);
-            //RoomWindow.ReadyResponseAction(data);
+            RoomWindow.ReadyResponseAction(data);
 
         }
         private void RemindReadyResponse(MsgBase msg)
         {
             string data = msg.data;
             Debug.Log(" RemindReadyResponse data服务器发送的消息:" + data);
-            //RoomWindow.RemindReadyResponseAction(data);
+            RoomWindow.RemindReadyResponseAction(data);
 
         }
         private void EnterRoomResponse(MsgBase msg)
         {
             string data = msg.data;
             Debug.Log(" EnterRoomResponse data服务器发送的消息:" + data);
-            //PlayWindow.EnterRoomResponseAction(data);
+            PlayWindow.EnterRoomResponseAction(data);
 
         }
         private void LoadFinishProgressResponse(MsgBase msg)
         {
             Debug.Log(" LoadFinishProgress data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //ToPrepareWindow.LoadFinishProgressAction(data);
+            ToPrepareWindow.LoadFinishProgressAction(data);
 
         }
         private void GameStartResponse(MsgBase msg)
         {
             Debug.Log(" GameStartResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //PlayWindow.GameStartResponseAction(data);
+            PlayWindow.GameStartResponseAction(data);
 
         }
         private void GameCountdownResponse(MsgBase msg)
         {
             Debug.Log(" GameCountdownResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-            //PlayWindow.GameCountdownResponseAction(data);
+            PlayWindow.GameCountdownResponseAction(data);
         }
         private void GameOverResponse(MsgBase msg)
         {
@@ -422,18 +422,18 @@ namespace HotFix
                 datas[i] = horseData;
                 Debug.Log("马排名的信息：" + horseData.rank);
             }
-            //if(PlayWindow.GameOverAction!=null)
-              //  PlayWindow.GameOverAction();
+            if(PlayWindow.GameOverAction!=null)
+                PlayWindow.GameOverAction();
             UIManager.instance.CloseWnd(FilesName.PLAYPANEL);
             UIManager.instance.PopUpWnd(FilesName.SETTLEMENTPANEL, true, false,datas);
-            //SettlementWindow.SetPanelData(roomId, horseId, startTime, rank, rank!=0?((int)float.Parse(datas[rank - 1].rewardAmount)).ToString():"0",1);
+            SettlementWindow.SetPanelData(roomId, horseId, startTime, rank, rank!=0?((int)float.Parse(datas[rank - 1].rewardAmount)).ToString():"0",1);
 
         }
         private void MandatoryExitResponse(MsgBase msg)
         {
             Debug.Log(" GameOverResponse data服务器发送的消息:" + msg.data);
             string data = msg.data;
-           // RoomWindow.MandatoryExitResponseAction();
+            RoomWindow.MandatoryExitResponseAction();
         }
         
         public static Dictionary<int, RoomDatas> roomDatas = new Dictionary<int, RoomDatas>();
