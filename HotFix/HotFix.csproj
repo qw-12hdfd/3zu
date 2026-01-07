@@ -151,6 +151,7 @@
     <Compile Include="UI\RentWindow.cs" />
     <Compile Include="UI\SelectPlayerWindow.cs" />
     <Compile Include="UI\LoadingWindow.cs" />
+    <Compile Include="UI\ShareWindow.cs" />
     <Compile Include="UI\StartWindow.cs" />
     <Compile Include="UI\MainWindow.cs" />
     <Compile Include="UI\Item\RankItem.cs" />
