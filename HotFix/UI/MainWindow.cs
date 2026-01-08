@@ -169,8 +169,9 @@ namespace HotFix
 
         private void LeaseHorsePanel()
         {
-            RentWindow rentWindow = new RentWindow();
-            rentWindow.RentPanel();
+            UIManager.instance.PopUpWnd(FilesName.COMMONDATAPANEL,true,false,null,null);
+            //RentWindow rentWindow = new RentWindow();
+            //rentWindow.RentPanel();
             //JsonData data = new JsonData();
             //data["pageNum"] = 1;
             //data["pageSize"] = 6;
