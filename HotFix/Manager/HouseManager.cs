@@ -19,6 +19,7 @@ namespace HotFix
             try
             {
                 Dictionary<int, AllPrefabsData> prefabDatas = JsonConfigManager.GetPrefabsData();
+                Dictionary<int, string> fullDatas = JsonConfigManager.GetFullTypeData();
                 int allCount = 0;
                 foreach (var tableName in JsonConfigManager.buildingDataList)
                 {
