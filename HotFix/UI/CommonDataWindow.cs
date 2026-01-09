@@ -33,7 +33,7 @@ namespace HotFix
         }
 
 
-        /// 查找所有组件
+        //查找所有组件
 
         private void FindAllComponent()
         {
@@ -54,10 +54,7 @@ namespace HotFix
 
         }
 
-
-        /// <summary>
-        /// 绑定所有按钮事件
-        /// </summary>
+        //绑定所有按钮事件
         private void AddAllBtnListtener()
         {
             // 马匹配额
@@ -85,17 +82,6 @@ namespace HotFix
                 UIManager.instance.CloseWnd(FilesName.COMMONDATAPANEL);
             });
         }
-
-
-        private void HideAllPanels()
-        {
-            panel1.SetActive(false);
-            panel2.SetActive(false);
-            panel3.SetActive(false);
-            panel4.SetActive(false);
-            panel5.SetActive(false);
-        }
-
 
         // 显示对应界面
 
