@@ -76,4 +76,17 @@ namespace HotFix
             this.type = type;
         }
     }
+    [System.Serializable]
+    public class FullType
+    {
+        public int ID;
+        public string Name;
+
+        public FullType(int typeID, string typeName)
+        {
+            ID = typeID;
+            Name = typeName;
+        }
+    }
+
 }
