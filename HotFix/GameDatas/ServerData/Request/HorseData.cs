@@ -120,7 +120,10 @@ namespace HotFix
         public int matchNumebr;                 //参加场次
         public string winRate;                  //胜率
         public string pic;                      //头像
+        public string price;                    //租赁费
+        public string time;                     //时间戳 -1代表空闲状态
     }
+
     public class BirthHorseData
     {
       

@@ -43,6 +43,29 @@ namespace HotFix
             TypeName = typeName;
         }
     }
+    public class AATable
+    {
+        public string ID;
+        public string Name;
+
+        public AATable(string iD, string name)
+        {
+            ID = iD;
+            Name = name;
+        }
+    }
+
+    public class AAType
+    {
+        public string TypeNum;
+        public string TypeName;
+
+        public AAType(string typeNum, string typeName)
+        {
+            TypeNum = typeNum;
+            TypeName = typeName;
+        }
+    }
 
     public class ListFront
     {

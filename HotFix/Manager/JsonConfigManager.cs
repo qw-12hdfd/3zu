@@ -20,6 +20,8 @@ namespace HotFix
         private static Dictionary<int, BuildingData> buildingDataDic = new Dictionary<int, BuildingData>();
         private static Dictionary<string, string> HorseBloodDataDic = new Dictionary<string, string>();
         private static Dictionary<string, string> HorseTypeDataDic = new Dictionary<string, string>();
+        private static Dictionary<string, string> HorseTypeAADataDic = new Dictionary<string, string>();
+        private static Dictionary<string, string> HorseDataDic = new Dictionary<string, string>();
         private static string parentPath = "Assets/GameData/Data/Json/";
         public static List<string> buildingDataList = new List<string>()
         {
@@ -144,5 +146,40 @@ namespace HotFix
             }
             return HorseTypeDataDic;
         }
+        internal static Dictionary<string, string> GetaaTable()
+        {
+            if (HorseTypeAADataDic.Count <= 0)
+            {
+                HorseTypeAADataDic = new Dictionary<string, string>();
+                AnalyzeJson("aaTable", (JsonData temp) =>
+                {
+                    foreach (JsonData item in temp["data"])
+                    {
+                        AATable t = JsonMapper.ToObject<AATable>(item.ToJson());
+                        HorseTypeAADataDic.Add(t.ID, t.Name);
+                        Debug.Log("HorseTypeAADataDic"+t.ID+t.Name);
+                    }
+                });
+            }
+            return HorseTypeAADataDic;
+        }
+        internal static Dictionary<string, string> GetHorseDataDic()
+        {
+            if (HorseDataDic.Count <= 0)
+            {
+                HorseDataDic = new Dictionary<string, string>();
+                AnalyzeJson("HorseDataq", (JsonData temp) =>
+                {
+                    foreach (JsonData item in temp["data"])
+                    {
+                        HorseData t = JsonMapper.ToObject<HorseData>(item.ToJson());
+                        HorseDataDic.Add(t.id, t.code);
+                        Debug.Log(t.id + "  3333333333333333333333333  " + t.code);
+                    }
+                });
+            }
+            return HorseDataDic;
+        }
+
     }
 }
