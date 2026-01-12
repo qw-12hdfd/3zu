@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace HotFix
 {
-    public class HorseObject:ObjectParent
+    public class HorseObject : ObjectParent
     {
         GameObject horseMane;
         GameObject horseBody;
@@ -20,7 +20,7 @@ namespace HotFix
         Material eyesMaterial;
         string datastr = "F-00-RR-CA-G1-W2-DP00";
         HorseData data;
-        TriggerEvent horseEvent;
+        //TriggerEvent horseEvent;
         Animator ani;
         public bool isMount = false;
         // Start is called before the first frame update
@@ -38,8 +38,8 @@ namespace HotFix
             Debug.Log("查找马匹身上材质");
             ani = m_Transform.GetComponent<Animator>();
             Debug.Log("获取动画");
-            horseEvent = m_Transform.GetComponent<TriggerEvent>();
-            horseEvent.ClickAct = ClickHorseAct;
+            //horseEvent = m_Transform.GetComponent<TriggerEvent>();
+            //horseEvent.ClickAct = ClickHorseAct;
         }
 
         public override void OnShow(object param1 = null, object param2 = null, object param3 = null)
@@ -48,7 +48,7 @@ namespace HotFix
                 data = ((HorseData)param1);
             else
                 data = new HorseData("", datastr, 0, 0);
-            SetHorseTexture(String.IsNullOrEmpty(data.code)? datastr:data.code);
+            SetHorseTexture(String.IsNullOrEmpty(data.code) ? datastr : data.code);
             m_GameObject.name = data.id;
             if (data.feedNember > 0)
             {
@@ -60,8 +60,8 @@ namespace HotFix
         {
             if (UserInfoManager.mount == false && UIManager.instance.IsSignWindowOpen(FilesName.MAINPANEL) && data.id == UserInfoManager.maCaoTransform.Find("HorsePos").GetChild(0).name)
             {
-                MainWindow.MountHorse(true,isMount);
-                if(ani.GetBool("Eat") == true)
+                MainWindow.MountHorse(true, isMount);
+                if (ani.GetBool("Eat") == true)
                     ani.SetBool("Eat", false);
             }
         }
@@ -98,7 +98,7 @@ namespace HotFix
             m_Transform.Find("- Cloth Colliders - ").localScale = data.stage == "0" ? new Vector3(0.6F, 0.6F, 0.6F) : new Vector3(1, 1, 1);
             m_Transform.localPosition = data.stage == "0" ? new Vector3(m_Transform.localPosition.x, m_Transform.localPosition.y, 0.5F) : m_Transform.localPosition;
 
-            Debug.Log("SetHorseTexture 马匹设置是否可以遛马"+isMount);
+            Debug.Log("SetHorseTexture 马匹设置是否可以遛马" + isMount);
             string bodyColor = "Red";
             switch (array[2])
             {
