@@ -76,6 +76,7 @@ namespace HotFix
         public override void Awake(object param1 = null, object param2 = null, object param3 = null)
         {
             var data = JsonConfigManager.GetHorseDataDic();
+            UserInfoManager.HorseDetails=JsonConfigManager.GetAllHorseDetails();
             MountHorse = ShowMountHorseBtn;
             GetDownHorse = ShowGetDownHorseBtn;
             PutFood = ShowPutFoodBtn;
@@ -88,6 +89,7 @@ namespace HotFix
             AddAllButtonClickListener();
             AgreementData data2 = new AgreementData("horse_buy_textarea");
             string jsonStr2 = JsonMapper.ToJson(data2);
+
             //WebRequestManager.instance.AsyncLoadUnityWebRequest(WebRequestUtils.listFront, AgreementWebRequestResponse, true, jsonStr2, RFrameWork.instance.token);
             AgreementData data3 = new AgreementData("horse_rent_time");
             string jsonStr3 = JsonMapper.ToJson(data3);

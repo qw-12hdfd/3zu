@@ -22,6 +22,7 @@ namespace HotFix
         private static Dictionary<string, string> HorseTypeDataDic = new Dictionary<string, string>();
         private static Dictionary<string, string> HorseTypeAADataDic = new Dictionary<string, string>();
         private static Dictionary<string, string> HorseDataDic = new Dictionary<string, string>();
+        private static List<HorseDetail> allHorseDetails=null;
         private static string parentPath = "Assets/GameData/Data/Json/";
         public static List<string> buildingDataList = new List<string>()
         {
@@ -180,6 +181,24 @@ namespace HotFix
             }
             return HorseDataDic;
         }
+        internal static List<HorseDetail> GetAllHorseDetails()
+        {
+            if (allHorseDetails!= null)
+                return allHorseDetails;
+            {
+                allHorseDetails =new  List<HorseDetail>();
+                AnalyzeJson("HorseDataq", (JsonData temp) =>
+                {
+                    foreach (JsonData item in temp["data"])
+                    {
+                        HorseDetail detail =JsonMapper.ToObject<HorseDetail>(item.ToJson());
+                        Debug.LogError(detail.id+ detail.name);
+                        allHorseDetails.Add(detail);
 
+                    }
+                });
+            }
+            return allHorseDetails;
+        }
     }
 }

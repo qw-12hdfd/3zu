@@ -149,6 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\CommonDataWindow.cs" />
     <Compile Include="UI\HorseFeedPanel.cs" />
+    <Compile Include="UI\Item\AllHorseItem.cs" />
     <Compile Include="UI\MapWindow.cs" />
     <Compile Include="UI\RentWindow.cs" />
     <Compile Include="UI\SelectPlayerWindow.cs" />
